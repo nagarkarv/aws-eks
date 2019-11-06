@@ -9,3 +9,11 @@ variable "kubernetes-server-instance-sg" {
 variable "worker_subnet" {
   type = "list"
 }
+
+variable "worker_ami" {}
+
+variable "vpc_id" {}
+
+variable "subnet_ids" {
+  type = "list"
+}

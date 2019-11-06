@@ -170,7 +170,7 @@ USERDATA
 resource "aws_launch_configuration" "worker" {
   iam_instance_profile = "${aws_iam_instance_profile.worker-node.name}"
   //image_id             = "${data.aws_ami.eks-worker.id}"
-  image_id             = "ami-0e21bc066a9dbabfa"
+  image_id             = "${var.worker_ami}"
   instance_type        = "t2.micro"
   name_prefix          = "worker-node"
   security_groups      = ["${aws_security_group.worker-node-sg.id}"]

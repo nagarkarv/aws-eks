@@ -1,5 +1,17 @@
+output "vpc_id" {
+  value = "${module.network.vpc_id}"
+}
+
 output "subnets" {
   value = "${module.network.subnets}"
+}
+
+output "worker-node-role" {
+  value = "${module.eks-cluster.worker-node-role}"
+}
+
+output "cluster-name" {
+  value = "${module.eks-cluster.cluster-name}"
 }
 
 #
@@ -58,6 +70,3 @@ output "kubeconfig" {
   value = "${local.kubeconfig}"
 }
 */
-/*output "cluster-name" {
-  value = "${aws_eks_cluster.eks-cluster.name}"
-}*/

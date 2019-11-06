@@ -39,7 +39,7 @@ resource "aws_iam_role_policy_attachment" "eks-cluster-AmazonEKSServicePolicy" {
 resource "aws_security_group" "cluster-sg" {
   name        = "clusterSG"
   description = "Cluster communication with worker nodes"
-  // TODO vpc_id      = "${var.vpc_id}"
+  vpc_id      = "${var.vpc_id}"
 
   egress {
     from_port   = 0
@@ -80,11 +80,7 @@ resource "aws_eks_cluster" "eks-cluster" {
 
   vpc_config {
     security_group_ids = ["${aws_security_group.cluster-sg.id}"]
-    //subnet_ids         = ["${var.subnet_ids}"]
-    // eu-central-1
-    subnet_ids = ["subnet-5f6d2d12", "subnet-8d8c88e6", "subnet-e8661495"]
-    // eu-west-2
-    //subnet_ids = ["subnet-2b544e66", "subnet-7fab2016", "subnet-d1ce1aab"]
+    subnet_ids = ["${var.subnet_ids}"]
   }
 
   depends_on = [

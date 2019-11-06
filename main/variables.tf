@@ -1,5 +1,6 @@
 variable "region" {
   default = "eu-central-1"
+  //default = "eu-west-2"
 }
 
 variable "instance_type" {
@@ -18,3 +19,6 @@ variable "instance_key" {
   default = "k8s-server-key"
 }
 
+variable "cluster-name" {
+  default = "k8s-cog-poc-cluster"
+}

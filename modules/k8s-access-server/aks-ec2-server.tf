@@ -28,7 +28,7 @@ resource "aws_instance" "kubernetes-server" {
   instance_type          = "${var.instance_type}"
   ami                    = "${var.instance_ami}"
   key_name               = "${var.instance_key}"
-  //TBC subnet_id              = "${var.k8-subnet}"
+  subnet_id              = "${var.k8-server-subnet}"
   vpc_security_group_ids = ["${aws_security_group.kubernetes-server-instance-sg.id}"]
 
   root_block_device {
